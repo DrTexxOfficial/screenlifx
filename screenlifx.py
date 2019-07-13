@@ -61,7 +61,7 @@ def main():
         color = (h, s, v, 0)
         lifx.set_color_all_lights(color, 150, rapid=True)
 
-        time.sleep(1/50)
+        time.sleep(1/60)
 
 if __name__ == '__main__':
     main()
