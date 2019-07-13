@@ -54,8 +54,8 @@ def main():
         blue = blue / totpixels
         t2 = time.process_time()
 
-        print("\rRGB %3d %3d %3d".format(red, green, blue))
-        print("- Time %2.4f".format(t2-t1))
+        print("\rRGB {:.1f} {:.1f} {:.1f}".format(red, green, blue))
+        print("- Time {}".format(t2-t1))
 
         h, s, v = rgb2hsv(red, green, blue)
         color = (h, s, v, 0)
