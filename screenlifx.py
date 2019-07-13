@@ -43,8 +43,8 @@ def main():
         # (just few ms in your average machine)
         img = img.resize((rx, ry))
         red = green = blue = 0
-        for y in xrange(0, img.size[1]):
-            for x in xrange(0, img.size[0]):
+        for y in range(0, img.size[1]):
+            for x in range(0, img.size[0]):
                 c = img.getpixel((x,y))
                 red = red + c[0]
                 green = green + c[1]
