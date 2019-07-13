@@ -7,6 +7,9 @@ Set LIFX color with the average screen color
 ## Installation
 []
 
+## Notes and things to consider
+Programs such as Flux or other 'Night Light' alternatives may impact colours. I can confirm this is definately the case for Gnome's Night Light.
+
 ## Demo
 [video coming soon]
 
