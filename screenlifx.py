@@ -5,7 +5,7 @@
 
 # use the LIFX LAN protocol via the excellent library by Meghan Clark
 # https://github.com/mclarkk/lifxlan
-from lifxlan import * # 
+from lifxlan import * #
 
 from PIL import ImageGrab
 from PIL import Image
@@ -17,16 +17,16 @@ def rgb2hsv(r, g, b):
     h = h * 0xffff
     s = s * 0xffff
     v = v * 0xffff
-    return h , s, v
+    return(h, s, v)
 
 def main():
     # start with the LIFX business...
-    lifx = LifxLAN(1)
-    print "Discovering lights..."
+    lifx = LifxLAN(None)
+    print("Discovering lights...")
     devices = lifx.get_lights()
     for d in devices:
-        print "{} ({}) HSBK: {}".format(d.get_label(), d.mac_addr, d.get_color())
-    print
+        print("{} ({}) HSBK: {}".format(d.get_label(), d.mac_addr, d.get_color()))
+    print()
 
     # the block of data to analyze.
     # PIL resizing to 1x1 seems to do strange things; a bigger box works better
@@ -54,8 +54,8 @@ def main():
         blue = blue / totpixels
         t2 = time.clock()
 
-        print "\rRGB %3d %3d %3d" % (red, green, blue), 
-        print "- Time %2.4f" % (t2-t1), 
+        print("\rRGB %3d %3d %3d".format(red, green, blue))
+        print("- Time %2.4f".format(t2-t1))
 
         h, s, v = rgb2hsv(red, green, blue)
         color = (h, s, v, 0)
