@@ -38,7 +38,7 @@ def main():
     # screen scanning loop
     while True:
         img = ImageGrab.grab()
-        t1 = time.clock()
+        t1 = time.process_time()
         # let PIL to shrink the image into a more manageable size
         # (just few ms in your average machine)
         img = img.resize((rx, ry))
@@ -52,7 +52,7 @@ def main():
         red = red / totpixels
         green = green / totpixels
         blue = blue / totpixels
-        t2 = time.clock()
+        t2 = time.process_time()
 
         print("\rRGB %3d %3d %3d".format(red, green, blue))
         print("- Time %2.4f".format(t2-t1))
