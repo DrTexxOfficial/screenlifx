@@ -1,4 +1,4 @@
-#! python2.7-32
+#!/usr/bin/env python3
 
 # some quick & dirty code to set LIFX color with the average
 # screen color. Works for VLC, some games, etc.
