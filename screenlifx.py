@@ -5,7 +5,7 @@
 
 # use the LIFX LAN protocol via the excellent library by Meghan Clark
 # https://github.com/mclarkk/lifxlan
-from lifxlan import * #
+from lifxlan import *
 
 from mss import mss
 from PIL import Image
