@@ -11,17 +11,6 @@ from mss import mss
 from PIL import Image
 import time, os, colorsys
 
-# preferences
-factor = 0.75
-
-# split image filename into name and extension
-#name, ext = os.path.splitext(image_file)
-
-# create a new file name for saving the result
-#new_image_file = "%s%s%s" % (name, str(factor), ext)
-#img_anti.save(new_image_file)
-#print("resized file saved as %s" % new_image_file)
-
 # helper for colors conversion/scaling
 def rgb2hsv(r, g, b):
     h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
@@ -48,23 +37,16 @@ def main():
 
     # screen scanning loop
     while True:
-
         with mss() as sct: image_file = sct.shot()
-
         img_org = Image.open(image_file)
-
         width_org, height_org = img_org.size
-
-        width = int(width_org * factor)
-        height = int(height_org * factor)
-
+        width = int(width_org * 0.75)
+        height = int(height_org * 0.75)
         # best down-sizing filter
         #img_resized = img_org.resize((width, height), Image.ANTIALIAS)
         # quickest down-sizing filter
         img_resized = img_org.resize((width, height), Image.NEAREST)
-
         img = img_resized
-
         t1 = time.process_time()
         # let PIL to shrink the image into a more manageable size
         # (just few ms in your average machine)
@@ -88,7 +70,7 @@ def main():
         color = (h, s, v, 0)
         lifx.set_color_all_lights(color, 150, rapid=True)
 
-        time.sleep(1/60)
+        time.sleep(1/50)
 
 if __name__ == '__main__':
     main()
